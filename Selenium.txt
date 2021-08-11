@@ -1,0 +1,65 @@
+ System.setProperty("webdriver.chrome.driver", "D:\\ChromeDriver\\chromedriver.exe");  
+          
+             // Instantiate a ChromeDriver class.     
+        WebDriver driver=new ChromeDriver();  
+          
+           // Launch Website  
+        driver.navigate().to("https://accounts.bukalapak.com/register?from=agentregister&comeback=https%3A%2F%2Fwww.bukalapak.com%2Fnutrimart-official");  
+          
+         //Maximize the browser  
+          driver.manage().window().maximize();  
+// Code to Register
+       driver.findElement(By.xpath("//input[@class='bl-text-field__input']")).Sendkeys("rupesh.1419.kumar@gmail.com"); 
+    driver.findElement(By.xpath("//button[contains(@class,'bl-button bl-button--primary')]")).click();
+driver.findElement(By.xpath("//*[text()='Mulai belanja']")).click();
+
+//Code To Login:
+
+driver.findElement(By.xpath("//*[text()='Login']")).click();
+driver.findElement(By.id("checkbox")).click();
+
+ChromeOptions options = new ChromeOptions();
+
+options.addArguments("start-maximized");
+
+options.addArguments("disable-infobars");
+
+options.addArguments("--disable-extensions"); 
+
+WebDriverWait wait=new WebDriverWait(WebDriverRefrence,10)
+
+wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("div.recaptcha-checkbox-checkmark"))).click();
+driver.findElement(By.id("checkbox")).sendkey("rupesh.1419.kumar@gmail.com");
+driver.findElement(By.id("user_session_password")).sendkey("90Bppimt@");
+driver.findElement(By.xpath("//*[text()='Login']")).click();
+driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+
+//code to search product:
+
+driver.findElement(By.xpath("//*[@id='v-omnisearch__input']")).sendkey("Mobile");
+driver.findElement(By.xpath("//*[@class='v-omnisearch__submit-icon']")).click();
+
+//code to add product
+driver.findElement(By.xpath("//*[contains(text(),'Garansi TAM Asus')]")).click();
+driver.findElement(By.xpath("//button[contains(text(),'Beli Sekarang')]")).click();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+    
+  

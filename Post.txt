@@ -1,0 +1,21 @@
+For Post:
+
+@Test
+public void post{
+RequestSpecification request =RestAssured.given();
+
+request.header("Content_type","application/json");
+
+JSONObject json=new JSONObject();
+json.put("title","recommendation");
+json.put("body","motorcycle");
+json.put("userId","12");
+
+request.body(json.toJSONString());
+
+Response response= request.post("https://jsonplaceholder.cypress.io/posts");
+
+int code=responce.getStatusCode();
+
+Assert.assertEquals(code,201);
+

@@ -1,0 +1,29 @@
+//Get:
+
+Public static void main(String[] args){
+try{
+Send HTTP_request.call_me();
+}
+catch(Exception e){
+e.printStackTrace();
+}
+}
+
+Public static void call_me(){
+String url="https://jsonplaceholder.cypress.io/posts";
+URL obj=new URL(url);
+HttpsURLConnection con=(HttpsURLConnection) obj.openConnection();
+con.setRequestMethod("GET");
+int responceCode=con.getresponseCode();
+BufferReader in=new BufferReader(new InputStreamreader(con.getInputStream()));
+String inputLine;
+StringBuffer respon= new StringBuffer();
+While((inputLine=in.readLine())!null){
+response.append(inputLine);
+}
+in.close();
+System.out.println(response.toString());
+
+JSONObject myResponce=new JSONObject(response.toString());
+System.out.println("userid" +myResponce.getString("userid"));
+
